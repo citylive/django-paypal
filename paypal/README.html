@@ -1,0 +1,351 @@
+<html>
+    <head><title>README</title></head>
+    <body>
+<h1>Django PayPal</h1>
+<h2>About</h2>
+<p>Django PayPal is a pluggable application that implements with PayPal Payments
+Standard and Payments Pro.</p>
+<p>Before diving in, a quick review of PayPal's payment methods is in order! <a href="https://cms.paypal.com/cms_content/US/en_US/files/developer/PP_WebsitePaymentsStandard_IntegrationGuide.pdf">PayPal Payments Standard</a> is the "Buy it Now" buttons you may have
+seen floating around the internets. Buyers click on the button and are taken to PayPal's website where they can pay for the product. After completing the purchase PayPal makes an HTTP POST to your  <code>notify_url</code>. PayPal calls this process <a href="https://cms.paypal.com/cms_content/US/en_US/files/developer/PP_OrderMgmt_IntegrationGuide.pdf">Instant Payment Notification</a> (IPN) but you may know it as <a href="http://blog.webhooks.org">webhooks</a>. This method kinda sucks because it drops your customers off at PayPal's website but it's easy to implement and doesn't require SSL.</p>
+<p>PayPal Payments Pro allows you to accept payments on your website. It contains two distinct payment flows - Direct Payment allows the user to enter credit card information on your website and pay on your website. Express Checkout sends the user over to PayPal to confirm their payment method before redirecting back to your website for confirmation. PayPal rules state that both methods must be implemented.</p>
+<p>There is currently an active discussion over the handling of some of the finer points of the PayPal API and the evolution of this code base - check it out over at <a href="http://groups.google.com/group/django-paypal">Django PayPal on Google Groups</a>.</p>
+<h2>Using PayPal Payments Standard IPN:</h2>
+<ol>
+<li>
+<p>Download the code from GitHub:</p>
+<pre><code>git clone git://github.com/johnboxall/django-paypal.git paypal
+</code></pre>
+</li>
+<li>
+<p>Edit <code>settings.py</code> and add  <code>paypal.standard.ipn</code> to your <code>INSTALLED_APPS</code>
+   and <code>PAYPAL_RECEIVER_EMAIL</code>:</p>
+<pre><code># settings.py
+...
+INSTALLED_APPS = (... 'paypal.standard.ipn', ...)
+...
+PAYPAL_RECEIVER_EMAIL = "yourpaypalemail@example.com"
+</code></pre>
+</li>
+<li>
+<p>Create an instance of the <code>PayPalPaymentsForm</code> in the view where you would
+    like to collect money. Call <code>render</code> on the instance in your template to
+    write out the HTML.</p>
+<pre><code># views.py
+...
+from paypal.standard.forms import PayPalPaymentsForm
+
+def view_that_asks_for_money(request):
+
+    # What you want the button to do.
+    paypal_dict = {
+        "business": "yourpaypalemail@example.com",
+        "amount": "10000000.00",
+        "item_name": "name of the item",
+        "invoice": "unique-invoice-id",
+        "notify_url": "http://www.example.com/your-ipn-location/",
+        "return_url": "http://www.example.com/your-return-location/",
+        "cancel_return": "http://www.example.com/your-cancel-location/",
+
+    }
+
+    # Create the instance.
+    form = PayPalPaymentsForm(initial=paypal_dict)
+    context = {"form": form}
+    return render_to_response("payment.html", context)
+
+&lt;!-- payment.html --&gt;
+...
+&lt;h1&gt;Show me the money!&lt;/h1&gt;
+&lt;!-- writes out the form tag automatically --&gt;
+{{ form.render }}
+</code></pre>
+</li>
+<li>
+<p>When someone uses this button to buy something PayPal makes a HTTP POST to
+    your "notify_url". PayPal calls this Instant Payment Notification (IPN).
+    The view <code>paypal.standard.ipn.views.ipn</code> handles IPN processing. To set the
+    correct <code>notify_url</code> add the following to your <code>urls.py</code>:</p>
+<pre><code># urls.py
+...
+urlpatterns = patterns('',
+    (r'^something/hard/to/guess/', include('paypal.standard.ipn.urls')),
+)
+</code></pre>
+</li>
+<li>
+<p>Whenever an IPN is processed a signal will be sent with the result of the
+    transaction. Connect the signals to actions to perform the needed operations
+    when a successful payment is recieved.</p>
+<p>There are two signals for basic transactions:
+- <code>payment_was_succesful</code>
+- <code>payment_was_flagged</code></p>
+<p>And four signals for subscriptions:
+- <code>subscription_cancel</code> - Sent when a subscription is cancelled.
+- <code>subscription_eot</code> - Sent when a subscription expires.
+- <code>subscription_modify</code> - Sent when a subscription is modified.
+- <code>subscription_signup</code> - Sent when a subscription is created.</p>
+<p>Connect to these signals and update your data accordingly. <a href="http://docs.djangoproject.com/en/dev/topics/signals/">Django Signals Documentation</a>.</p>
+<pre><code># models.py
+...
+from paypal.standard.ipn.signals import payment_was_successful
+
+def show_me_the_money(sender, **kwargs):
+    ipn_obj = sender
+    # Undertake some action depending upon `ipn_obj`.
+    if ipn_obj.custom == "Upgrade all users!":
+        Users.objects.update(paid=True)
+payment_was_successful.connect(show_me_the_money)
+</code></pre>
+</li>
+</ol>
+<h2>Using PayPal Payments Standard PDT:</h2>
+<p>Paypal Payment Data Transfer (PDT) allows you to display transaction details to a customer immediately on return to your site unlike PayPal IPN which may take some seconds. <a href="https://cms.paypal.com/us/cgi-bin/?cmd=_render-content&amp;content_ID=developer/howto_html_paymentdatatransfer">You will need to enable PDT in your PayPal account to use it.your PayPal account to use it</a>.</p>
+<ol>
+<li>
+<p>Download the code from GitHub:</p>
+<pre><code>git clone git://github.com/johnboxall/django-paypal.git paypal
+</code></pre>
+</li>
+<li>
+<p>Edit <code>settings.py</code> and add  <code>paypal.standard.pdt</code> to your <code>INSTALLED_APPS</code>. Also set <code>PAYPAL_IDENTITY_TOKEN</code> - you can find the correct value of this setting from the PayPal website:</p>
+<pre><code># settings.py
+...
+INSTALLED_APPS = (... 'paypal.standard.pdt', ...)
+
+PAYPAL_IDENTITY_TOKEN = "xxx"
+</code></pre>
+</li>
+<li>
+<p>Create a view that uses <code>PayPalPaymentsForm</code> just like in PayPal IPN.</p>
+</li>
+<li>
+<p>After someone uses this button to buy something PayPal will return the user to your site at
+    your "return_url" with some extra GET parameters. PayPal calls this Payment Data Transfer (PDT).
+    The view <code>paypal.standard.pdt.views.pdt</code> handles PDT processing. to specify the correct
+     <code>return_url</code> add the following to your <code>urls.py</code>:</p>
+<pre><code># urls.py
+...
+urlpatterns = patterns('',
+    (r'^paypal/pdt/', include('paypal.standard.pdt.urls')),
+    ...
+)
+</code></pre>
+</li>
+</ol>
+<h2>Using PayPal Payments Standard with Subscriptions:</h2>
+<ol>
+<li>
+<p>For subscription actions, you'll need to add a parameter to tell it to use the subscription buttons and the command, plus any
+    subscription-specific settings:</p>
+<pre><code># views.py
+...
+paypal_dict = {
+    "cmd": "_xclick-subscriptions",
+    "business": "your_account@paypal",
+    "a3": "9.99",                      # monthly price
+    "p3": 1,                           # duration of each unit (depends on unit)
+    "t3": "M",                         # duration unit ("M for Month")
+    "src": "1",                        # make payments recur
+    "sra": "1",                        # reattempt payment on payment error
+    "no_note": "1",                    # remove extra notes (optional)
+    "item_name": "my cool subscription",
+    "notify_url": "http://www.example.com/your-ipn-location/",
+    "return_url": "http://www.example.com/your-return-location/",
+    "cancel_return": "http://www.example.com/your-cancel-location/",
+}
+
+# Create the instance.
+form = PayPalPaymentsForm(initial=paypal_dict, button_type="subscribe")
+
+# Output the button.
+form.render()
+</code></pre>
+</li>
+</ol>
+<h2>Using PayPal Payments Standard with Encrypted Buttons:</h2>
+<p>Use this method to encrypt your button so sneaky gits don't try to hack it. Thanks to <a href="http://jonatkinson.co.uk/">Jon Atkinson</a> for the <a href="http://jonatkinson.co.uk/paypal-encrypted-buttons-django/">tutorial</a>.</p>
+<ol>
+<li>
+<p>Encrypted buttons require the <code>M2Crypto</code> library:</p>
+<pre><code>easy_install M2Crypto
+</code></pre>
+</li>
+<li>
+<p>Encrypted buttons require certificates. Create a private key:</p>
+<pre><code>openssl genrsa -out paypal.pem 1024
+</code></pre>
+</li>
+<li>
+<p>Create a public key:</p>
+<pre><code>openssl req -new -key paypal.pem -x509 -days 365 -out pubpaypal.pem
+</code></pre>
+</li>
+<li>
+<p>Upload your public key to the paypal website (sandbox or live).</p>
+<p><a href="https://www.paypal.com/us/cgi-bin/webscr?cmd=_profile-website-cert">https://www.paypal.com/us/cgi-bin/webscr?cmd=_profile-website-cert</a></p>
+<p><a href="https://www.sandbox.paypal.com/us/cgi-bin/webscr?cmd=_profile-website-cert">https://www.paypal.com/us/cgi-bin/webscr?cmd=_profile-website-cert</a></p>
+</li>
+<li>
+<p>Copy your <code>cert id</code> - you'll need it in two steps. It's on the screen where
+    you uploaded your public key.</p>
+</li>
+<li>
+<p>Download PayPal's public certificate - it's also on that screen.</p>
+</li>
+<li>
+<p>Edit your <code>settings.py</code> to include cert information:</p>
+<pre><code># settings.py
+PAYPAL_PRIVATE_CERT = '/path/to/paypal.pem'
+PAYPAL_PUBLIC_CERT = '/path/to/pubpaypal.pem'
+PAYPAL_CERT = '/path/to/paypal_cert.pem'
+PAYPAL_CERT_ID = 'get-from-paypal-website'
+</code></pre>
+</li>
+<li>
+<p>Swap out your unencrypted button for a <code>PayPalEncryptedPaymentsForm</code>:</p>
+<pre><code># views.py
+from paypal.standard.forms import PayPalEncryptedPaymentsForm
+
+def view_that_asks_for_money(request):
+    ...
+    # Create the instance.
+    form = PayPalPaymentsForm(initial=paypal_dict)
+    # Works just like before!
+    form.render()
+</code></pre>
+</li>
+</ol>
+<h2>Using PayPal Payments Standard with Encrypted Buttons and Shared Secrets:</h2>
+<p>This method uses Shared secrets instead of IPN postback to verify that transactions
+are legit. PayPal recommends you should use Shared Secrets if:</p>
+<pre><code>* You are not using a shared website hosting service.
+* You have enabled SSL on your web server.
+* You are using Encrypted Website Payments.
+* You use the notify_url variable on each individual payment transaction.
+</code></pre>
+<p>Use postbacks for validation if:
+    * You rely on a shared website hosting service
+    * You do not have SSL enabled on your web server </p>
+<ol>
+<li>
+<p>Swap out your button for a <code>PayPalSharedSecretEncryptedPaymentsForm</code>:</p>
+<pre><code># views.py
+from paypal.standard.forms import PayPalSharedSecretEncryptedPaymentsForm
+
+def view_that_asks_for_money(request):
+    ...
+    # Create the instance.
+    form = PayPalSharedSecretEncryptedPaymentsForm(initial=paypal_dict)
+    # Works just like before!
+    form.render()
+</code></pre>
+</li>
+<li>
+<p>Verify that your IPN endpoint is running on SSL - <code>request.is_secure()</code> should return <code>True</code>!</p>
+</li>
+</ol>
+<h2>Using PayPal Payments Pro (WPP)</h2>
+<p>WPP is the more awesome version of PayPal that lets you accept payments on your
+site. WPP reuses code from <code>paypal.standard</code> so you'll need to include both
+apps. <a href="http://www.pdncommunity.com/pdn/board/message?board.id=wppro&amp;thread.id=192">There is an explanation of WPP in the PayPal Forums</a>.</p>
+<ol>
+<li>
+<p>Edit <code>settings.py</code> and add  <code>paypal.standard</code> and <code>paypal.pro</code> to your
+   <code>INSTALLED_APPS</code>, also set your PayPal settings:</p>
+<pre><code># settings.py
+...
+INSTALLED_APPS = (... 'paypal.standard', 'paypal.pro', ...)
+PAYPAL_TEST = True           # Testing mode on
+PAYPAL_WPP_USER = "???"      # Get from PayPal
+PAYPAL_WPP_PASSWORD = "???"
+PAYPAL_WPP_SIGNATURE = "???"
+</code></pre>
+</li>
+<li>
+<p>Run <code>python manage.py syncdb</code> to add the required tables.</p>
+</li>
+<li>
+<p>Write a wrapper view for <code>paypal.pro.views.PayPalPro</code>:</p>
+<pre><code># views.py
+from paypal.pro.views import PayPalPro
+
+def buy_my_item(request):
+  item = {"amt": "10.00",             # amount to charge for item
+          "inv": "inventory",         # unique tracking variable paypal
+          "custom": "tracking",       # custom tracking variable for you
+          "cancelurl": "http://...",  # Express checkout cancel url
+          "returnurl": "http://..."}  # Express checkout return url
+
+  kw = {"item": item,                            # what you're selling
+        "payment_template": "payment.html",      # template name for payment
+        "confirm_template": "confirmation.html", # template name for confirmation
+        "success_url": "/success/"}              # redirect location after success
+
+  ppp = PayPalPro(**kw)
+  return ppp(request)
+</code></pre>
+</li>
+<li>
+<p>Create templates for payment and confirmation. By default both templates are
+   populated with the context variable <code>form</code> which contains either a
+   <code>PaymentForm</code> or a <code>Confirmation</code> form.</p>
+<p><!-- payment.html -->
+<h1>Show me the money</h1>
+<form method="post" action="">
+  {{ form }}
+  <input type="submit" value="Pay Up">
+</form></p>
+<p><!-- confirmation.html -->
+<h1>Are you sure you want to buy this thing?</h1>
+<form method="post" action="">
+  {{ form }}
+  <input type="submit" value="Yes I Yams">
+</form></p>
+</li>
+<li>
+<p>Add your view to <code>urls.py</code>, and add the IPN endpoint to receive callbacks
+   from PayPal:</p>
+<pre><code># urls.py
+...
+urlpatterns = ('',
+    ...
+    (r'^payment-url/$', 'myproject.views.buy_my_item')
+    (r'^some/obscure/name/', include('paypal.standard.ipn.urls')),
+)
+</code></pre>
+</li>
+<li>
+<p>Profit.</p>
+</li>
+</ol>
+<h2>Links:</h2>
+<ol>
+<li>
+<p><a href="https://www.sandbox.paypal.com/us/cgi-bin/webscr?cmd=_profile-ipn-notify">Set your IPN Endpoint on the PayPal Sandbox</a></p>
+</li>
+<li>
+<p><a href="http://groups.google.com/group/django-paypal">Django PayPal on Google Groups</a></p>
+</li>
+</ol>
+<h1>License (MIT)</h1>
+<p>Copyright (c) 2009 Handi Mobility Inc.</p>
+<p>Permission is hereby granted, free of charge, to any person
+obtaining a copy of this software and associated documentation
+files (the "Software"), to deal in the Software without
+restriction, including without limitation the rights to use,
+copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the
+Software is furnished to do so, subject to the following
+conditions:</p>
+<p>The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE.</p>
+    </body>
+</html>

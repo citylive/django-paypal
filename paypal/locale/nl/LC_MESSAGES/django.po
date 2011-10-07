@@ -1,0 +1,965 @@
+# Translations from City Live i18n database
+# Generated: 2011-03-29 11:05:39.073587
+#, fuzzy
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: pro/fields.py:99
+msgid "United States of America"
+msgstr "Verenigde Staten van Amerika"
+
+#: pro/fields.py:100
+msgid "Canada"
+msgstr "Canada"
+
+#: pro/fields.py:101
+msgid "Afghanistan"
+msgstr "Afghanistan"
+
+#: pro/fields.py:102
+msgid "Albania"
+msgstr "Albanië"
+
+#: pro/fields.py:103
+msgid "Algeria"
+msgstr "Algerije"
+
+#: pro/fields.py:104
+msgid "American Samoa"
+msgstr "Amerikaans-Samoa"
+
+#: pro/fields.py:105
+msgid "Andorra"
+msgstr "Andorra"
+
+#: pro/fields.py:106
+msgid "Angola"
+msgstr "Angola"
+
+#: pro/fields.py:107
+msgid "Anguilla"
+msgstr "Anguilla"
+
+#: pro/fields.py:108
+msgid "Antarctica"
+msgstr ""
+
+#: pro/fields.py:109
+msgid "Antigua & Barbuda"
+msgstr "Antigua & Barduba"
+
+#: pro/fields.py:110
+msgid "Argentina"
+msgstr "Argentinië"
+
+#: pro/fields.py:111
+msgid "Armenia"
+msgstr "Armenië"
+
+#: pro/fields.py:112
+msgid "Aruba"
+msgstr "Aruba"
+
+#: pro/fields.py:113
+msgid "Australia"
+msgstr "Australië"
+
+#: pro/fields.py:114
+msgid "Austria"
+msgstr "Oostenrijk"
+
+#: pro/fields.py:115
+msgid "Azerbaijan"
+msgstr "Azerbeidzjan"
+
+#: pro/fields.py:116
+msgid "Bahama"
+msgstr ""
+
+#: pro/fields.py:117
+msgid "Bahrain"
+msgstr "Bahrein"
+
+#: pro/fields.py:118
+msgid "Bangladesh"
+msgstr "Bangladesh"
+
+#: pro/fields.py:119
+msgid "Barbados"
+msgstr "Barbados"
+
+#: pro/fields.py:120
+msgid "Belarus"
+msgstr "Wit-Rusland"
+
+#: pro/fields.py:121
+msgid "Belgium"
+msgstr "België"
+
+#: pro/fields.py:122
+msgid "Belize"
+msgstr "Belize"
+
+#: pro/fields.py:123
+msgid "Benin"
+msgstr "Benin"
+
+#: pro/fields.py:124
+msgid "Bermuda"
+msgstr "Bermuda"
+
+#: pro/fields.py:125
+msgid "Bhutan"
+msgstr "Bhutan"
+
+#: pro/fields.py:126
+msgid "Bolivia"
+msgstr "Bolivia"
+
+#: pro/fields.py:127
+msgid "Bosnia and Herzegovina"
+msgstr ""
+
+#: pro/fields.py:128
+msgid "Botswana"
+msgstr "Botswana"
+
+#: pro/fields.py:129
+msgid "Bouvet Island"
+msgstr ""
+
+#: pro/fields.py:130
+msgid "Brazil"
+msgstr "Brazilië"
+
+#: pro/fields.py:131
+msgid "British Indian Ocean Territory"
+msgstr ""
+
+#: pro/fields.py:132
+msgid "British Virgin Islands"
+msgstr ""
+
+#: pro/fields.py:133
+msgid "Brunei Darussalam"
+msgstr ""
+
+#: pro/fields.py:134
+msgid "Bulgaria"
+msgstr "Bulgarije"
+
+#: pro/fields.py:135
+msgid "Burkina Faso"
+msgstr "Burkina Faso"
+
+#: pro/fields.py:136
+msgid "Burundi"
+msgstr "Burundi"
+
+#: pro/fields.py:137
+msgid "Cambodia"
+msgstr "Cambodja"
+
+#: pro/fields.py:138
+msgid "Cameroon"
+msgstr "Kameroen"
+
+#: pro/fields.py:139
+msgid "Cape Verde"
+msgstr "Kaapverdië"
+
+#: pro/fields.py:140
+msgid "Cayman Islands"
+msgstr "Kaaimaneilanden"
+
+#: pro/fields.py:141
+msgid "Central African Republic"
+msgstr "Centraal-Afrikaanse Republiek"
+
+#: pro/fields.py:142
+msgid "Chad"
+msgstr "Tsjaad"
+
+#: pro/fields.py:143
+msgid "Chile"
+msgstr "Chili"
+
+#: pro/fields.py:144
+msgid "China"
+msgstr "China"
+
+#: pro/fields.py:145
+msgid "Christmas Island"
+msgstr "Kersteiland"
+
+#: pro/fields.py:146
+msgid "Cocos (Keeling) Islands"
+msgstr ""
+
+#: pro/fields.py:147
+msgid "Colombia"
+msgstr "Colombia"
+
+#: pro/fields.py:148
+msgid "Comoros"
+msgstr "Comoren"
+
+#: pro/fields.py:149
+msgid "Congo"
+msgstr "Congo"
+
+#: pro/fields.py:150
+msgid "Cook Iislands"
+msgstr ""
+
+#: pro/fields.py:151
+msgid "Costa Rica"
+msgstr "Costa Rica"
+
+#: pro/fields.py:152
+msgid "Croatia"
+msgstr "Kroatië"
+
+#: pro/fields.py:153
+msgid "Cuba"
+msgstr "Cuba"
+
+#: pro/fields.py:154
+msgid "Cyprus"
+msgstr "Cyprus"
+
+#: pro/fields.py:155
+msgid "Czech Republic"
+msgstr "Tsjechië"
+
+#: pro/fields.py:156
+msgid "Denmark"
+msgstr "Denemarken"
+
+#: pro/fields.py:157
+msgid "Djibouti"
+msgstr "Djibouti"
+
+#: pro/fields.py:158
+msgid "Dominica"
+msgstr "Dominica"
+
+#: pro/fields.py:159
+msgid "Dominican Republic"
+msgstr "Dominicaanse Republiek"
+
+#: pro/fields.py:160
+msgid "East Timor"
+msgstr "Timor-Leste"
+
+#: pro/fields.py:161
+msgid "Ecuador"
+msgstr "Ecuador"
+
+#: pro/fields.py:162
+msgid "Egypt"
+msgstr "Egypte"
+
+#: pro/fields.py:163
+msgid "El Salvador"
+msgstr "El Salvador"
+
+#: pro/fields.py:164
+msgid "Equatorial Guinea"
+msgstr "Equatoriaal-Guinea"
+
+#: pro/fields.py:165
+msgid "Eritrea"
+msgstr "Eritrea"
+
+#: pro/fields.py:166
+msgid "Estonia"
+msgstr "Estland"
+
+#: pro/fields.py:167
+msgid "Ethiopia"
+msgstr "Ethiopië"
+
+#: pro/fields.py:168
+msgid "Falkland Islands (Malvinas)"
+msgstr ""
+
+#: pro/fields.py:169
+msgid "Faroe Islands"
+msgstr "Faeröer"
+
+#: pro/fields.py:170
+msgid "Fiji"
+msgstr "Fiji"
+
+#: pro/fields.py:171
+msgid "Finland"
+msgstr "Finland"
+
+#: pro/fields.py:172
+msgid "France"
+msgstr "Frankrijk"
+
+#: pro/fields.py:173
+msgid "France, Metropolitan"
+msgstr ""
+
+#: pro/fields.py:174
+msgid "French Guiana"
+msgstr "Frans-Guyana"
+
+#: pro/fields.py:175
+msgid "French Polynesia"
+msgstr "Frans-Polynesië"
+
+#: pro/fields.py:176
+msgid "French Southern Territories"
+msgstr ""
+
+#: pro/fields.py:177
+msgid "Gabon"
+msgstr "Gabon"
+
+#: pro/fields.py:178
+msgid "Gambia"
+msgstr "Gambia"
+
+#: pro/fields.py:179
+msgid "Georgia"
+msgstr "Georgië"
+
+#: pro/fields.py:180
+msgid "Germany"
+msgstr "Duitsland"
+
+#: pro/fields.py:181
+msgid "Ghana"
+msgstr "Ghana"
+
+#: pro/fields.py:182
+msgid "Gibraltar"
+msgstr "Gibraltar"
+
+#: pro/fields.py:183
+msgid "Greece"
+msgstr "Griekenland"
+
+#: pro/fields.py:184
+msgid "Greenland"
+msgstr "Groenland"
+
+#: pro/fields.py:185
+msgid "Grenada"
+msgstr "Grenada"
+
+#: pro/fields.py:186
+msgid "Guadeloupe"
+msgstr "Guadeloupe"
+
+#: pro/fields.py:187
+msgid "Guam"
+msgstr "Guam"
+
+#: pro/fields.py:188
+msgid "Guatemala"
+msgstr "Guatemala"
+
+#: pro/fields.py:189
+msgid "Guinea"
+msgstr "Guinee"
+
+#: pro/fields.py:190
+msgid "Guinea-Bissau"
+msgstr ""
+
+#: pro/fields.py:191
+msgid "Guyana"
+msgstr "Guyana"
+
+#: pro/fields.py:192
+msgid "Haiti"
+msgstr "Haïti"
+
+#: pro/fields.py:193
+msgid "Heard & McDonald Islands"
+msgstr ""
+
+#: pro/fields.py:194
+msgid "Honduras"
+msgstr "Honduras"
+
+#: pro/fields.py:195
+msgid "Hong Kong"
+msgstr "Hongkong"
+
+#: pro/fields.py:196
+msgid "Hungary"
+msgstr "Hongarije"
+
+#: pro/fields.py:197
+msgid "Iceland"
+msgstr "IJsland"
+
+#: pro/fields.py:198
+msgid "India"
+msgstr "Indië"
+
+#: pro/fields.py:199
+msgid "Indonesia"
+msgstr "Indonesië"
+
+#: pro/fields.py:200
+msgid "Iraq"
+msgstr "Irak"
+
+#: pro/fields.py:201
+msgid "Ireland"
+msgstr "Ierland"
+
+#: pro/fields.py:202
+msgid "Islamic Republic of Iran"
+msgstr ""
+
+#: pro/fields.py:203
+msgid "Israel"
+msgstr "Israël"
+
+#: pro/fields.py:204
+msgid "Italy"
+msgstr "Italië"
+
+#: pro/fields.py:205
+msgid "Ivory Coast"
+msgstr ""
+
+#: pro/fields.py:206
+msgid "Jamaica"
+msgstr "Jamaica"
+
+#: pro/fields.py:207
+msgid "Japan"
+msgstr "Japan"
+
+#: pro/fields.py:208
+msgid "Jordan"
+msgstr "Jordanië"
+
+#: pro/fields.py:209
+msgid "Kazakhstan"
+msgstr "Kazachstan"
+
+#: pro/fields.py:210
+msgid "Kenya"
+msgstr "Kenia"
+
+#: pro/fields.py:211
+msgid "Kiribati"
+msgstr "Kitibati"
+
+#: pro/fields.py:212
+msgid "Korea, Democratic People's Republic of"
+msgstr ""
+
+#: pro/fields.py:213
+msgid "Korea, Republic of"
+msgstr ""
+
+#: pro/fields.py:214
+msgid "Kuwait"
+msgstr "Koeweit"
+
+#: pro/fields.py:215
+msgid "Kyrgyzstan"
+msgstr "Kirgizië"
+
+#: pro/fields.py:216
+msgid "Lao People's Democratic Republic"
+msgstr ""
+
+#: pro/fields.py:217
+msgid "Latvia"
+msgstr "Letland"
+
+#: pro/fields.py:218
+msgid "Lebanon"
+msgstr "Libanon"
+
+#: pro/fields.py:219
+msgid "Lesotho"
+msgstr "Lesotho"
+
+#: pro/fields.py:220
+msgid "Liberia"
+msgstr "Liberia"
+
+#: pro/fields.py:221
+msgid "Libyan Arab Jamahiriya"
+msgstr ""
+
+#: pro/fields.py:222
+msgid "Liechtenstein"
+msgstr "Liechtenstein"
+
+#: pro/fields.py:223
+msgid "Lithuania"
+msgstr "Litouwen"
+
+#: pro/fields.py:224
+msgid "Luxembourg"
+msgstr "Luxemburg"
+
+#: pro/fields.py:225
+msgid "Macau"
+msgstr "Macau"
+
+#: pro/fields.py:226
+msgid "Madagascar"
+msgstr "Madagaskar"
+
+#: pro/fields.py:227
+msgid "Malawi"
+msgstr "Malawi"
+
+#: pro/fields.py:228
+msgid "Malaysia"
+msgstr "Maleisië"
+
+#: pro/fields.py:229
+msgid "Maldives"
+msgstr "Malediven"
+
+#: pro/fields.py:230
+msgid "Mali"
+msgstr "Mali"
+
+#: pro/fields.py:231
+msgid "Malta"
+msgstr "Malta"
+
+#: pro/fields.py:232
+msgid "Marshall Islands"
+msgstr "Marshalleilanden"
+
+#: pro/fields.py:233
+msgid "Martinique"
+msgstr "Martinique"
+
+#: pro/fields.py:234
+msgid "Mauritania"
+msgstr "Mauritanië"
+
+#: pro/fields.py:235
+msgid "Mauritius"
+msgstr "Mauritius"
+
+#: pro/fields.py:236
+msgid "Mayotte"
+msgstr "Mayotte"
+
+#: pro/fields.py:237
+msgid "Mexico"
+msgstr "Mexico"
+
+#: pro/fields.py:238
+msgid "Micronesia"
+msgstr ""
+
+#: pro/fields.py:239
+msgid "Moldova, Republic of"
+msgstr ""
+
+#: pro/fields.py:240
+msgid "Monaco"
+msgstr "Monaco"
+
+#: pro/fields.py:241
+msgid "Mongolia"
+msgstr "Mongolië"
+
+#: pro/fields.py:242
+msgid "Monserrat"
+msgstr ""
+
+#: pro/fields.py:243
+msgid "Morocco"
+msgstr "Marokko"
+
+#: pro/fields.py:244
+msgid "Mozambique"
+msgstr "Mozambique"
+
+#: pro/fields.py:245
+msgid "Myanmar"
+msgstr "Myanmar"
+
+#: pro/fields.py:246
+msgid "Namibia"
+msgstr "Namibië"
+
+#: pro/fields.py:247
+msgid "Nauru"
+msgstr "Nauru"
+
+#: pro/fields.py:248
+msgid "Nepal"
+msgstr "Nepal"
+
+#: pro/fields.py:249
+msgid "Netherlands"
+msgstr "Nederland"
+
+#: pro/fields.py:250
+msgid "Netherlands Antilles"
+msgstr ""
+
+#: pro/fields.py:251
+msgid "New Caledonia"
+msgstr "Nieuw-Caledonië"
+
+#: pro/fields.py:252
+msgid "New Zealand"
+msgstr "Nieuw-Zeeland"
+
+#: pro/fields.py:253
+msgid "Nicaragua"
+msgstr "Nicaragua"
+
+#: pro/fields.py:254
+msgid "Niger"
+msgstr "Niger"
+
+#: pro/fields.py:255
+msgid "Nigeria"
+msgstr "Nigeria"
+
+#: pro/fields.py:256
+msgid "Niue"
+msgstr "Niue"
+
+#: pro/fields.py:257
+msgid "Norfolk Island"
+msgstr "Norfolk"
+
+#: pro/fields.py:258
+msgid "Northern Mariana Islands"
+msgstr ""
+
+#: pro/fields.py:259
+msgid "Norway"
+msgstr "Noorwegen"
+
+#: pro/fields.py:260
+msgid "Oman"
+msgstr "Oman"
+
+#: pro/fields.py:261
+msgid "Pakistan"
+msgstr "Pakistan"
+
+#: pro/fields.py:262
+msgid "Palau"
+msgstr ""
+
+#: pro/fields.py:263
+msgid "Panama"
+msgstr "Panama"
+
+#: pro/fields.py:264
+msgid "Papua New Guinea"
+msgstr "Papoea-Nieuw-Guinea"
+
+#: pro/fields.py:265
+msgid "Paraguay"
+msgstr "Paraguay"
+
+#: pro/fields.py:266
+msgid "Peru"
+msgstr "Peru"
+
+#: pro/fields.py:267
+msgid "Philippines"
+msgstr "Filipijnen"
+
+#: pro/fields.py:268
+msgid "Pitcairn"
+msgstr ""
+
+#: pro/fields.py:269
+msgid "Poland"
+msgstr "Polen"
+
+#: pro/fields.py:270
+msgid "Portugal"
+msgstr "Portugal"
+
+#: pro/fields.py:271
+msgid "Puerto Rico"
+msgstr "Puerto Rico"
+
+#: pro/fields.py:272
+msgid "Qatar"
+msgstr "Qatar"
+
+#: pro/fields.py:273
+msgid "Reunion"
+msgstr "Réunion"
+
+#: pro/fields.py:274
+msgid "Romania"
+msgstr "Roemenië"
+
+#: pro/fields.py:275
+msgid "Russian Federation"
+msgstr ""
+
+#: pro/fields.py:276
+msgid "Rwanda"
+msgstr "Rwanda"
+
+#: pro/fields.py:277
+msgid "Saint Lucia"
+msgstr ""
+
+#: pro/fields.py:278
+msgid "Samoa"
+msgstr "Samoa"
+
+#: pro/fields.py:279
+msgid "San Marino"
+msgstr "San Marino"
+
+#: pro/fields.py:280
+msgid "Sao Tome & Principe"
+msgstr "Sao Tomé & Principe"
+
+#: pro/fields.py:281
+msgid "Saudi Arabia"
+msgstr "Saoedi-Arabië"
+
+#: pro/fields.py:282
+msgid "Senegal"
+msgstr "Senegal"
+
+#: pro/fields.py:283
+msgid "Seychelles"
+msgstr "Seychellen"
+
+#: pro/fields.py:284
+msgid "Sierra Leone"
+msgstr "Sierra Leone"
+
+#: pro/fields.py:285
+msgid "Singapore"
+msgstr "Singapore"
+
+#: pro/fields.py:286
+msgid "Slovakia"
+msgstr "Slowakije"
+
+#: pro/fields.py:287
+msgid "Slovenia"
+msgstr "Slovenië"
+
+#: pro/fields.py:288
+msgid "Solomon Islands"
+msgstr "Salomonseilanden"
+
+#: pro/fields.py:289
+msgid "Somalia"
+msgstr "Somalië"
+
+#: pro/fields.py:290
+msgid "South Africa"
+msgstr "Zuid-Afrika"
+
+#: pro/fields.py:291
+msgid "South Georgia and the South Sandwich Islands"
+msgstr ""
+
+#: pro/fields.py:292
+msgid "Spain"
+msgstr "Spanje"
+
+#: pro/fields.py:293
+msgid "Sri Lanka"
+msgstr "Sri Lanka"
+
+#: pro/fields.py:294
+msgid "St. Helena"
+msgstr ""
+
+#: pro/fields.py:295
+msgid "St. Kitts and Nevis"
+msgstr ""
+
+#: pro/fields.py:296
+msgid "St. Pierre & Miquelon"
+msgstr ""
+
+#: pro/fields.py:297
+msgid "St. Vincent & the Grenadines"
+msgstr ""
+
+#: pro/fields.py:298
+msgid "Sudan"
+msgstr "Soedan"
+
+#: pro/fields.py:299
+msgid "Suriname"
+msgstr "Suriname"
+
+#: pro/fields.py:300
+msgid "Svalbard & Jan Mayen Islands"
+msgstr ""
+
+#: pro/fields.py:301
+msgid "Swaziland"
+msgstr "Swaziland"
+
+#: pro/fields.py:302
+msgid "Sweden"
+msgstr "Zweden"
+
+#: pro/fields.py:303
+msgid "Switzerland"
+msgstr "Zwitserland"
+
+#: pro/fields.py:304
+msgid "Syrian Arab Republic"
+msgstr ""
+
+#: pro/fields.py:305
+msgid "Taiwan, Province of China"
+msgstr ""
+
+#: pro/fields.py:306
+msgid "Tajikistan"
+msgstr "Tadzjikistan"
+
+#: pro/fields.py:307
+msgid "Tanzania, United Republic of"
+msgstr ""
+
+#: pro/fields.py:308
+msgid "Thailand"
+msgstr "Thailand"
+
+#: pro/fields.py:309
+msgid "Togo"
+msgstr "Togo"
+
+#: pro/fields.py:310
+msgid "Tokelau"
+msgstr "Tokelau"
+
+#: pro/fields.py:311
+msgid "Tonga"
+msgstr "Tonga"
+
+#: pro/fields.py:312
+msgid "Trinidad & Tobago"
+msgstr "Trinidad & Tobago"
+
+#: pro/fields.py:313
+msgid "Tunisia"
+msgstr "Tunesië"
+
+#: pro/fields.py:314
+msgid "Turkey"
+msgstr "Turkije"
+
+#: pro/fields.py:315
+msgid "Turkmenistan"
+msgstr "Turkmenistan"
+
+#: pro/fields.py:316
+msgid "Turks & Caicos Islands"
+msgstr ""
+
+#: pro/fields.py:317
+msgid "Tuvalu"
+msgstr "Tuvalu"
+
+#: pro/fields.py:318
+msgid "Uganda"
+msgstr "Oeganda"
+
+#: pro/fields.py:319
+msgid "Ukraine"
+msgstr "Oekraïne"
+
+#: pro/fields.py:320
+msgid "United Arab Emirates"
+msgstr "Verenigde Arabische Emiraten"
+
+#: pro/fields.py:321
+msgid "United Kingdom (Great Britain)"
+msgstr ""
+
+#: pro/fields.py:322
+msgid "United States Minor Outlying Islands"
+msgstr ""
+
+#: pro/fields.py:323
+msgid "United States Virgin Islands"
+msgstr ""
+
+#: pro/fields.py:324
+msgid "Unknown or unspecified country"
+msgstr ""
+
+#: pro/fields.py:325
+msgid "Uruguay"
+msgstr "Uruguay"
+
+#: pro/fields.py:326
+msgid "Uzbekistan"
+msgstr "Oezbekistan"
+
+#: pro/fields.py:327
+msgid "Vanuatu"
+msgstr "Vanuatu"
+
+#: pro/fields.py:328
+msgid "Vatican City State (Holy See)"
+msgstr ""
+
+#: pro/fields.py:329
+msgid "Venezuela"
+msgstr "Venezuela"
+
+#: pro/fields.py:330
+msgid "Viet Nam"
+msgstr ""
+
+#: pro/fields.py:331
+msgid "Wallis & Futuna Islands"
+msgstr ""
+
+#: pro/fields.py:332
+msgid "Western Sahara"
+msgstr ""
+
+#: pro/fields.py:333
+msgid "Yemen"
+msgstr "Jemen"
+
+#: pro/fields.py:334
+msgid "Yugoslavia"
+msgstr ""
+
+#: pro/fields.py:335
+msgid "Zaire"
+msgstr "Zaïre"
+
+#: pro/fields.py:336
+msgid "Zambia"
+msgstr "Zambia"
+
+#: pro/fields.py:337
+msgid "Zimbabwe"
+msgstr "Zimbabwe"
+
