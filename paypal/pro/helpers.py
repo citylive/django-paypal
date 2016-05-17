@@ -9,7 +9,6 @@ import urllib2
 
 from django.conf import settings
 from django.forms.models import fields_for_model
-from django.utils.datastructures import MergeDict
 from django.utils.http import urlencode
 
 from paypal.pro.signals import *
@@ -226,8 +225,11 @@ class PayPalWPP(object):
             pprint.pprint(response_params)
 
         # Gather all NVP parameters to pass to a new instance.
+        merged_params = {}
+        merged_params.update(defaults)
+        merged_params.update(response_params)
         nvp_params = {}
-        for k, v in MergeDict(defaults, response_params).items():
+        for k, v in merged_params.items():
             if k in NVP_FIELDS:
                 nvp_params[str(k)] = v
 
