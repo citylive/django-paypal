@@ -14,8 +14,10 @@ from paypal.standard.conf import (POSTBACK_ENDPOINT, SANDBOX_POSTBACK_ENDPOINT,
 # PayPal dates have been spotted in the wild with these formats, beware!
 PAYPAL_DATE_FORMAT = ("%H:%M:%S %b. %d, %Y PST",
                       "%H:%M:%S %b. %d, %Y PDT",
+                      "%H:%M:%S %b. %d, %Y GMT",
                       "%H:%M:%S %b %d, %Y PST",
-                      "%H:%M:%S %b %d, %Y PDT",)
+                      "%H:%M:%S %b %d, %Y PDT",
+                      "%H:%M:%S %b %d, %Y GMT",)
 
 class PayPalPaymentsForm(forms.Form):
     """
